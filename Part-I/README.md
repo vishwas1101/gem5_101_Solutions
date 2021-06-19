@@ -35,8 +35,6 @@ This should successfully run and the output should be something like
 Number of primes: 78498
 Exiting @ tick 76009375000 because exiting with last active thread context
 ```
-Number of primes: 78498
-Exiting @ tick 75950298000 because exiting with last active thread context
 
 
 
