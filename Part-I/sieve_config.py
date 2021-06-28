@@ -78,7 +78,7 @@ parser.add_option('--l2_size', help="Unified L2 cache size")
 system = System()
 
 system.clk_domain = SrcClockDomain()
-system.clk_domain.clock = '1GHz'
+system.clk_domain.clock = '2GHz'
 system.clk_domain.voltage_domain = VoltageDomain()
 
 system.mem_mode = 'timing'
@@ -112,11 +112,13 @@ system.cpu.interrupts[0].int_responder = system.membus.mem_side_ports
 system.system_port = system.membus.cpu_side_ports
 
 system.mem_ctrl = MemCtrl()
-system.mem_ctrl.dram = DDR3_1600_8x8()
+# system.mem_ctrl.dram = DDR3_1600_8x8()
+system.mem_ctrl.dram = DDR3_2133_8x8()
+
 system.mem_ctrl.dram.range = system.mem_ranges[0]
 system.mem_ctrl.port = system.membus.mem_side_ports
 
-binary = 'tests/test-progs/hello/bin/x86/linux/hello'
+binary = 'tests/test-progs/sieve/bin/sieve'
 
 system.workload = SEWorkload.init_compatible(binary)
 
